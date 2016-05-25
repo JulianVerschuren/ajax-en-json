@@ -1,0 +1,37 @@
+
+
+header{
+
+background-color: darkslateblue;
+height: 120px;
+margin-left: -10px;
+margin-top: -64px;
+margin-right: -10px;
+margin-bottom: 0px;
+
+}
+
+header h1{
+text-align: center;
+color: white;
+font-family: sans-serif;
+font-size: 6em;
+}
+
+
+footer{
+background-color: darkslateblue;
+height: 60px;
+margin-left: -10px;
+color: white;
+margin-right: -10px;
+
+
+
+}
+
+footer p{
+	
+text-align: center;
+
+}
