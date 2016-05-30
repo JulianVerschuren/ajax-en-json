@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 
 	$('#searchTerm').keydown(function (e) {
-
+		console.log(e.keyCode);
 			if (e.keyCode == 13) {
 
 				searching = $('#searchTerm').val();
@@ -50,10 +50,10 @@ $(document).ready(function () {
 
 	
 
-	function getPhotos() {
+var getPhotos =	function() {
 
 
-		var flickLink = " http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + searching + "&jsoncallback=? "
+		var flickLink = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + searching + "&jsoncallback=?"
 			$.ajax (
 
 			{
@@ -61,10 +61,10 @@ $(document).ready(function () {
 				dataType: 'json',
 				method: 'GET',
 				url: flickLink,
-				succes: verwerkfotos
+				success: verwerkfotos
 
 			}
-
+// note to self: altijd success met twee s'en schrijven. !@#$@#$!
 
 		)
 
@@ -72,7 +72,27 @@ $(document).ready(function () {
 
 	function verwerkfotos(data) {
 		console.log(data);
+		$('#photos').html(""); //hiermee selecteren we de lege html div photos waar de fotos in komen te staan. de div word ook leeg gemaakt met .html tussenhaakjes leeg
 		
+for(var i = 0; i <data.items.length; i++) //hier komt een for loop.Ik definieer de loop met ''i'' en geef hem de waarde 0 mee, als de waarde 'i' kleiner is dan de lengte van alle items, dus de hoeveelheid objecten van de zoekresultaten. doe er een bij.
+{
+
+var photo = data.items[i]; //hier maak ik een nieuwe variabele photo. deze geef ik de waarde mee van de data van de objecten, en de de element van wat er door de teller = 'i' word aangewezen. dit word een foto. en dit gaan we nu plaatsen in een stukje html.
+
+var htmlCode = "<img src=' " + photo.media.m + "' > ";
+// de variabele html code pakt een image source plus de daadwerkelijke foto die opgehaald ism et het zoeken. die photo staat bij media en is m.
+
+
+$('#photos').append(htmlCode);
+
+
+//hierboven zoeken we de code op van de photos en selecteren het en dan voegen we de waarde van htmlCode, (dus die foto) toe met append
+
+
+
+}
+
+
 
 	}
 
@@ -80,3 +100,25 @@ $(document).ready(function () {
 });
 
 //inplaats van dat ik per functie alert searching doe.  heb ik een functie aangemaakt genaamd getPhotos. die functie alert searching en die functie kan ik nu overal aanroepen. dit is een stuk handiger dan elke keer overnieuw hem moeten aanroepen . hier komt uiteindelijk geen alert meer te staan.
+
+
+
+
+/*
+ˆ
+
+ (dit is theo's commentaar bij de video)
+Door het json-Object te bestuderen, zie je welke eigenschappen het heeft. Om de afbeeldingen eruit te halen, moet je de items-array in, daarin in een van de objecten gaan, daarin weer media object de m-waarde opvragen.
+
+Dit moet voor alle afbeeldingen gebeuren. Dit doen we daarom met een for-lus statement.
+
+Van elke foto.items[i] wordt de media.m waarde genomen en dat in de src waarde van de img-tag geplaatst. Vervolgens wordt deze html-code toegevoegd met .append() aan de code die tot toe staat in de div-tag met id foto. 
+
+
+*/
+
+
+
+
+
+
