@@ -56,18 +56,18 @@ font-size: 6em;
 }
 
 
-}
+
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -142px; 
+  margin-bottom: -142px;
 }
 .page-wrap:after {
   content: "";
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 60px; 
+  height: 60px;
 }
 .site-footer {
   background: darkslateblue;
@@ -85,7 +85,32 @@ margin-right: -10px;
 }
 
 #footer p{
-	
+
 text-align: center;
 
 }*/
+
+
+
+
+p#source{
+
+clear: both;
+text-align: center;;
+
+
+}
+
+p#source a{
+
+font-size: 19px;
+text-decoration: none;
+color: darkslateblue;
+
+
+}
+
+
+#validatie img {
+text-align: center;
+}

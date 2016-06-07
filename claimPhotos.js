@@ -100,7 +100,8 @@ $(document).ready(function () {
 
 
 		}
-
+$('#source a').attr("href", data.link).text(data.title + " door Flickr.com ");
+//ik selecteer de id source en plaats daar de informatie in van de objecten deze link gaat dus naar alle uploads op flickr ,com met dezelfde tag als me zoekresultaat dan
 
 
 	}
@@ -121,7 +122,7 @@ Door het json-Object te bestuderen, zie je welke eigenschappen het heeft. Om de 
 
 Dit moet voor alle afbeeldingen gebeuren. Dit doen we daarom met een for-lus statement.
 
-Van elke foto.items[i] wordt de media.m waarde genomen en dat in de src waarde van de img-tag geplaatst. Vervolgens wordt deze html-code toegevoegd met .append() aan de code die tot toe staat in de div-tag met id foto. 
+Van elke foto.items[i] wordt de media.m waarde genomen en dat in de src waarde van de img-tag geplaatst. Vervolgens wordt deze html-code toegevoegd met .append() aan de code die tot toe staat in de div-tag met id foto.
 
 
 */
